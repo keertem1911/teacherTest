@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="../css/common/bootstrap.min.css" rel="stylesheet">
+<script src="../js/common/jquery-2.1.3.min.js"></script>
+<script src="../js/common/bootstrap.min.js"></script>
+<title>教师端</title>
+</head>
+<script>
+	function apply_template(){
+		var close = confirm("确定应用模板？");
+		if ( close) {}else{}
+	}
+	
+	function row_del(id){
+		var close = confirm("确定删除此条目？");
+		if (close){
+			var row = document.getElementById(id);
+			row.parentNode.removeChild(row);
+		}
+	}
+</script>
+<body style="padding-top: 50px;">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="padding:1px 10px">
+		 <img alt="Brand" src="../images/common/logo.jpg" style="width:50px;height:50px">
+	  </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">实验/作业 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="stu_view_practice.html">查看实验安排</a></li>
+            <li class="divider"></li>
+            <li><a href="#">注册实验小组</a></li>
+            <li class="divider"></li>
+            <li><a href="#">提交实验/作业</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">测试/考试 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">在线测试</a></li>
+            <li class="divider"></li>
+            <li><a href="#">在线考试</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">课程资源 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">查询课程资源</a></li>
+            <li class="divider"></li>
+            <li><a href="#">上传课程资源</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="#">张三[04123123]</a></li>
+      	<li><a href="#">设置</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">常用链接 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://www.xupt.edu.cn">西邮主页</a></li>
+            <li><a href="http://lib.xupt.edu.cn">图书馆</a></li>
+            <li class="divider"></li>
+            <li><a href="http://cs.xupt.edu.cn">计算机学院</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="alert alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	欢迎回来!&nbsp;<strong>郝羽</strong>老师[04123123]
+</div>
+
+<div class="row" style="padding:10px 20px">
+	<div class="col-md-3">
+		<ol class="breadcrumb">
+		  <li><a href="teacher_menu.html">实验列表</a></li>
+		  <li class="active">软件工程C</li>
+		</ol>
+		<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">实验信息</h3>
+			  </div>
+			  <div class="panel-body">
+				<table class="table table-hover">
+					<tr><td>111</td><td><a href="#">软件工程C</a></td></tr>
+					<tr><td>112</td><td><a href="#">Java语言程序设计A</a></td></tr>
+					<tr><td>113</td><td><a href="#">C语言程序设计II</a></td></tr>
+					<tr><td>114</td><td><a href="#">分布式计算原理与应用</a></td></tr>
+					<tr><td>115</td><td><a href="#">软件工程C</a></td></tr>
+					<tr><td>116</td><td><a href="#">Java语言程序设计A</a></td></tr>
+					<tr><td>117</td><td><a href="#">C语言程序设计II</a></td></tr>
+					<tr><td>118</td><td><a href="#">分布式计算原理与应用</a></td></tr>
+				</table>
+			  </div>
+		</div>
+	</div>
+	<div class="col-md-9">			
+		   	<table class="table table-bordered table-hover">
+		   		<tr class="info">
+		   			<td class="text-center"><button class="btn btn-success btn-lg">保存</button></td>
+		   			<td class="text-center" colspan="3"><h3>实验详情</h3></td>
+		   			<td></td>
+		   		</tr>
+		   		<tr>
+		   			<td colspan="2"><strong>实验名称：</strong>软件工程C</td>
+		   			<td><strong>指导老师：</strong>舒新峰</td>
+		   			<td colspan="2"><strong>实验地点：</strong>东区FZ131</td>
+		   		</tr>
+		   		<tr>
+		   			<td colspan="2"><strong>实验班级：</strong>软件1206</td>
+		   			<td><strong>课程类型：</strong>必修</td>
+		   			<td colspan="2"><strong>开课时间：</strong>2014-2015第二学期</td>
+		   		</tr>
+		   		<tr>
+		   			<td colspan="5">
+		   				<strong>实验要求：</strong>
+		   				<textarea class="form-control" rows="5">软件工程是随着计算机系统的发展而逐步形成的计算机科学领域中的一门新兴学科。通过软件工程课程的学习，能够达到正确的安排软件的结构，合理组织、管理软件的生产的教学目的。教学的实践环节是本课程的重要部分，通过实验例证理解掌握软件工程各阶段的任务和完成后的文档是什么及完成方法。本课程实验环节安排10学时，主要完成需求分析、模块设计、数据库设计、详细设计和测试分析六个部分。</textarea>
+		   			</td>
+		   		</tr>
+		   		<tr>
+		   			<td colspan="5">
+		   				<div class="text-center"><strong>学习小组审核</strong></div>
+		   				<table class="table table-bordered table-hover">
+		   					<tr><th>名称</th><th>小组成员</th><th></th><th></th></tr>
+		   					<tr><td>小组1</td><td>张三、李四、王五、赵六</td><td><button class="btn btn-success btn-xs">通过</button></td><td><button class="btn btn-danger btn-xs">解散</button></td></tr>
+		   					<tr><td>小组2</td><td>张三、李四、王五、赵六</td><td>已通过</td><td><button class="btn btn-danger btn-xs">解散</button></td></tr>
+		   					<tr><td>小组3</td><td>张三、李四、王五、赵六</td><td><button class="btn btn-success btn-xs">通过</button></td><td><button class="btn btn-danger btn-xs">解散</button></td></tr>
+		   					<tr><td>小组4</td><td>张三、李四、王五、赵六</td><td>已通过</td><td><button class="btn btn-danger btn-xs">解散</button></td></tr>
+		   				</table>
+		   			</td><td></td>
+		   		</tr>
+		   		<tr><td class="text-center"><strong>载入实验模板</strong></td>
+		   			<td colspan="3">
+		   				<select class="form-control">
+						  <option>未选择</option>
+						  <option>软件工程</option>
+						  <option>Java语言程序设计</option>
+						  <option>C语言程序设计II</option>
+						  <option>分布式计算原理与应用</option>
+						</select>
+		   			</td>
+		   			<td class="text-center"><button class="btn btn-warning" onclick=apply_template()>应用模板</button></td>
+		   		</tr>
+		   		<tr><td class="text-center" colspan="5"><strong>实验详情</strong></td></tr>
+		   		<tr><td><strong>序号</strong></td><td><strong>时间</strong></td><td><strong>内容</strong></td><td><strong>课时</strong></td><td></td></tr>
+		   		<tr id=1><td>1</td><td><input type="text" placeholder="上课时间" value="3月3日"></td><td>熟悉PowerDesigner，完成数据库建模</td><td>2</td><td><a class="btn btn-info btn-xs" href="teacher_course_detail.html">编辑</a><a class="btn btn-danger btn-xs pull-right" onclick=row_del(1)>删除</a></td></tr>
+		   		<tr id=2><td>2</td><td><input type="text" placeholder="上课时间" value="3月10日"></td><td>小型应用系统的设计与开发</td><td>2</td><td><a class="btn btn-info btn-xs" href="teacher_course_detail.html">编辑</a><a class="btn btn-danger btn-xs pull-right" onclick=row_del(2)>删除</a></td></tr>
+		   		<tr id=3><td>3</td><td><input type="text" placeholder="上课时间" value="3月15日"></td><td>使用Rose工具进行OO建模</td><td>2</td><td><a class="btn btn-info btn-xs" href="teacher_course_detail.html">编辑</a><a class="btn btn-danger btn-xs pull-right" onclick=row_del(3)>删除</a></td></tr>
+		   		<tr id=4><td>4</td><td><input type="text" placeholder="上课时间" value="3月26日"></td><td>小型应用系统的设计与开发</td><td>2</td><td><a class="btn btn-info btn-xs" href="teacher_course_detail.html">编辑</a><a class="btn btn-danger btn-xs pull-right" onclick=row_del(4)>删除</a></td></tr>
+		   		<tr id=5><td>5</td><td><input type="text" placeholder="上课时间" value="4月3日"></td><td>使用Rose工具进行OO建模</td><td>2</td><td><a class="btn btn-info btn-xs" href="teacher_course_detail.html">编辑</a><a class="btn btn-danger btn-xs pull-right" onclick=row_del(5)>删除</a></td></tr>
+		   		<tr><td></td><td><input type="text" placeholder="上课时间"></td><td><input type="text" placeholder="课程内容"></td><td><input type="text" placeholder="课时"></td><td><a class="btn btn-success btn-xs" href="teacher_course_detail.html">添加</a></td></tr>
+		   	</table>
+	</div>
+</div>
+
+</body>
+</html>

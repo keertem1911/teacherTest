@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-form.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#but1").click(function(){
+			$.ajax({
+				url:"taskToPlan_saveGroupByTask.action",
+				type:"post",
+				dataType:"json",
+				data:{"t_id":28,"g_id":2,s_score:"99"},
+				success:function(msg){
+				 console.log(msg);
+				}
+			});
+		})
+	
+	 
+		$("#but2").click(function(){
+			$.ajax({
+				url:"taskToPlan_findGroupsByTask.action",
+				type:"post",
+				dataType:"json",
+				data:{"t_id":28},
+				success:function(msg){
+					console.log(msg);
+				}
+			});
+		});
+		$("#but3").click(function(){
+			$.ajax({
+				url:"teacher_deleteByquestion.action",
+				type:"post",
+				dataType:"json",
+				data:{"id":"2"},
+				success:function(msg){
+					console.log(msg);
+				}
+			});
+		});
+		$("#but4").click(function(){
+			$.ajax({
+				url:"teacher_deleteBytest.action",
+				type:"post",
+				dataType:"json",
+				data:{"id":"2"},
+				success:function(msg){
+					console.log(msg);
+				}
+			});
+		});
+		
+		
+		$("#uploadsubmit").click(function(){
+			var i = 0;
+			 	
+			var allowExtention = ".doc,.docx"; //允许上传文件的后缀名document.getElementById("hfAllowPicSuffix").value;
+			var extention = $("#upload").val().substring( $("#upload").val().lastIndexOf(".") + 1).toLowerCase();
+			var browserVersion = window.navigator.userAgent.toUpperCase();
+			//console.log(extention);
+			if (allowExtention.indexOf(extention) > -1) {
+			 	$("#form").ajaxSubmit({
+					url: 'group_upload.action',
+					success: function(data) {
+						if(data=="1"){
+							alert("上传成功");}else{
+								alert("上传失败");}					 
+					},
+					});
+				}
+			 else {
+				 alert("仅支持" + allowExtention + "为后缀名的文件!");
+				 $("#upload").val(""); //清空选中文件
+			 }  
+		});
+		
+		
+		
+	})  
+</script>
+<body>
+  	<input type="button" id="but1">update q</input>
+	<input type="button" id="but2">update t</input>
+	<input type="button" id="but3">delete q</input>
+	<input type="button" id="but4">delete t</input>
+	<a  href="file/1.doc">xxx</a>  
+	
+	<!-- <form action="comment_uploadSave.action" method="post"  enctype="multipart/form-data" id="form" style="margin-top:12px" >
+				<input type="text" name="g_id" value="2"/>
+				<input type="text" name="g_score" value="102"/>
+				<label style="width: 100px;position: absolute;left:44px">上传数据 :</label> 
+				 <input type="file" style="position: absolute;left:150px;" name="upload" value="" id="upload" /> <br/> 
+				<input type="button" style="position: absolute;width:280px;left:60px;margin-top:5px" value="保存" id="uploadsubmit"/>
+			  	 </form> -->
+</body>
+</html>

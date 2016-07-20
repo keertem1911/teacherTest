@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="../css/common/bootstrap.min.css" rel="stylesheet">
+<script src="../js/common/jquery-2.1.3.min.js"></script>
+<script src="../js/common/bootstrap.min.js"></script>
+<title>实验小组详情</title>
+<style type="text/css">
+  th,td{
+    text-align: center;
+  }
+</style>
+<script type="text/javascript">
+window.onload=function chClas()
+  {
+	
+ 
+	var url = location.search;
+		var dot = url.indexOf('=')+1;
+		var id = url.substr(dot,1);
+	
+   
+    var change=document.getElementById("set_workView");
+    var  mylength=change.rows.length;
+    var mylength2=mylength;
+    for( var i=1;i<mylength2;i++)
+    {
+      if((i%2)==0)
+        change.rows[i].setAttribute("class","success");
+      else{
+        change.rows[i].setAttribute("class","warning");
+      }
+    }
+    $.ajax({
+    	type:"post",
+    	url:"group_findDetailGroupById.action",
+    	dataType:"json",
+    	data:{g_id:id},
+    	success:function(msg){
+    		addtbody(msg);
+    	},
+    	error : function(){
+			alert('链接数据库失败，请刷新后再试');
+		}
+    	
+    });
+ 
+  function addtbody(msg){
+	  document.getElementById("g_name").innerHTML=msg.groups.g_name;
+	  document.getElementById("g_pname").innerHTML=msg.groups.g_pname;
+	  document.getElementById("g_describ").innerHTML=msg.groups.g_describ;
+ 	  var html =''+ ' <tr>'+
+      '<td>组长</td>'+
+      '<td>'+msg.groups.g_headName+'</td>'+
+      '<td>'+msg.groups.g_headdo+'</td>'+
+    '</tr>';
+    var dos={};
+     for(var i=0;i<4;++i){
+    	 var num="g_member"+(i+1);
+    	 var num2=num+"do";
+    	 dos[msg.groups[num]]=msg.groups[num2];
+     }
+    for(var i=0;i<msg.students.length;++i){
+    	if(i==0){ 
+    		
+    		html+='   <tr >'+
+            '<td rowspan="7">组员</td>'+
+           ' <td>'+msg.students[i].s_name+'</td>'+
+           ' <td>'+dos[msg.students[i].s_id]+'</td>'+
+          '</tr>';
+    	}else{
+    		html+='   <tr >'+
+              
+               ' <td>'+msg.students[i].s_name+'</td>'+
+               ' <td>'+dos[msg.students[i].s_id]+'</td>'+
+              '</tr>';
+    	}
+    }
+    $("#tbody").empty().append(html);
+    hmtl="";
+  }
+  function ajax_agree(statu2,disagree){
+  $.ajax({
+  	type:"post",
+  	url:"group_updateAgreeOrDis.action",
+  	dataType:"json",
+  	data:{g_id:id,g_statu2:statu2,g_disagree:disagree},
+  	success:function(msg){
+  		if(msg.statu==1){
+  			window.location.href="set_group.html";
+  		}else{
+   		window.location.reload();
+  		}
+  	},
+  	error : function(){
+			alert('链接数据库失败，请刷新后再试');
+		}
+  	
+  });
+  }
+  $("#submit").click(function(){
+	  var s="通过";
+	  ajax_agree(s,"");
+  });
+  $("#savedis").click(function(){
+	  var a=$("#suggest").val();
+	  var s="未通过";
+	  ajax_agree(s,a);
+  });
+  $("#return1").click(function(){
+	  back();
+  })
+  function back(){
+    window.history.go(-1);
+  }
+  }
+</script>
+</head>
+<body>
+  <div >
+    <div class="form-group">
+      <label class="col-sm-2 control-label">小组名:</label>
+      <div class="col-sm-10">
+        <p class="form-control-static" id="g_name"></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" >项目名:</label>
+      <div class="col-sm-10">
+        <p class="form-control-static" id="g_pname"></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">小组描述:</label>
+      <div class="col-sm-10">
+        <p class="form-control-static" id="g_describ"></p>
+      </div>
+    </div>
+  </div>
+    
+   <table id="set_workView" class="table table-bordered table-hover">
+   <thead>
+          <tr class="info">
+            <th>成员</th>
+            <th>姓名</th>
+            <th>分工 </th>
+          </tr>
+          </thead>
+          <tbody id='tbody'></tbody>
+    
+      </table>
+     
+        <form class="form-horizontal" method="" action="">
+          <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-4">
+            <button type="button" class="btn btn-success" value="" id="submit">同意</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#myModal">不同意</button>
+           
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <h4 class="modal-title" id="myModalLabel">如果不同意，请写入您的意见</h4>
+              </div>
+              <div class="modal-body">
+                <textarea resize:none style="width:100%;resize:none" cols="3" id="suggest"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="savedis">保存</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div style="float:right;">
+              <button type="button" class="btn btn-primary btn-mini"  id="return1" >返回</button>
+      </div>
+</body>
+</html>
+

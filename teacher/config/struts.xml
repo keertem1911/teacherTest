@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="test" extends="struts-default" namespace="/">
+	 	<action  name="teacher_*" method="{1}" class="unitAction">
+	 		<result name="home">/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="student_*"  method="{1}" class="studentAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	
+	 	
+	 	<action  name="eduplan_*"  method="{1}" class="eduplanAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="taskToPlan_*"  method="{1}" class="taskToPlanAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="titleplan_*"  method="{1}" class="titlePlanAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	
+	 	
+	 	<action  name="titlemodel_*"  method="{1}" class="titleModelAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="taskToModel_*"  method="{1}" class="taskToModelAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="model_*"  method="{1}" class="modelAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	<action  name="group_*"  method="{1}" class="groupAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	 <!--
+	 	
+	 	<action  name="student_*"  method="{1}" class="studentAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action>
+	 	
+	 	<action  name="student_*"  method="{1}" class="studentAction">
+	 		 <result>/teacher_home.jsp</result>
+	 	</action> -->
+	</package>
+</struts>

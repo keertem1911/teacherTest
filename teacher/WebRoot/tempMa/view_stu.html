@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="../css/common/bootstrap.min.css" rel="stylesheet">
+<script src="../js/common/jquery-2.1.3.min.js"></script>
+<script src="../js/common/bootstrap.min.js"></script>
+<title>教师端</title>
+<script type="text/javascript">
+  window.onload=function chClas()
+  {
+         var change=document.getElementById("studentView");
+    var  mylength=change.rows.length;
+    var mylength2=mylength;
+    for( var i=1;i<mylength2;i++)
+    {
+      if((i%2)==0)
+      
+                 change.rows[i].setAttribute("class","success");
+      
+    }
+  }
+</script>
+</head>
+<body>
+  </br>
+  <div >
+      <table id="studentView" class="table table-bordered table-hover">
+		   		<tr class="info">
+		   			<th>班级</th>
+		   			<th>姓名</th>
+		   			<th>学号</th>
+		   		</tr>
+		   		<tr >
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+		   		<tr>
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		<tr >
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+		   		<tr>
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+		   		<tr >
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   			
+		   		</tr>
+		   		<tr >
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+		   		<tr>
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+		   		<tr >
+		   			<td>111</td>
+		   			<td>李欢</td>
+		   			<td>88</td>
+		   		</tr>
+			</table>
+			<div class="text-center" style="display:block;">	<!-- 分页 -->
+				  <ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+			</div>
+		  </div>
+</body>
+</html>

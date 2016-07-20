@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="title">
+ 
+   		 <insert id="addTitle" parameterType="empties.Title">
+   		 		 insert into titleedu(tit_name,tit_content,t_id)
+   		 		 values(#{tit_name},#{tit_content},#{t_id}) 
+   		 </insert>
+  	 	<select id="lookDetailTitleToTask" parameterType="java.lang.Long" resultType="empties.Title">
+  	 		select * from titleedu  where t_id=#{t_id} 
+  	 	</select>
+  	 		<select id="lookDetailTitleToModel" parameterType="java.lang.Long" resultType="empties.Title">
+  	 		select * from title  where t_id=#{t_id} 
+  	 	</select>
+  	 		<select id="lookDetailTitleToPlan" parameterType="java.lang.Long" resultType="empties.Title">
+  	 		select * from titleedu  where t_id=#{t_id} 
+  	 	</select>
+  		<delete id="deleteTitlePlan" parameterType="java.lang.Long">
+  			delete from titleedu where tit_id=#{tit_id}
+  		</delete>
+<!-- 	<select id="searchTest" parameterType="java.util.List" resultType="empties.Question">
+		select * from question where id in
+		<foreach collection="list" item="idItem"   open="(" separator="," close=")" >
+			#{idItem}
+		</foreach>
+	</select>
+	<select id="addQuestion" parameterType="empties.Question" >
+		insert into question(types,txt,idx_1,idx_2,idx_3,idx_4,idx_5,idx_6,sno,course)
+		 values(#{types},#{txt},#{idx_1},#{idx_2},#{idx_3},#{idx_4},#{idx_5},#{idx_6},#{sno},#{course})
+	</select>
+	
+	<insert id="save" parameterType="java.util.HashMap">
+		insert into test(ids,name,sno) values(#{ids},#{name},#{sno});
+	</insert>
+	 <select id="findTestById" resultType="empties.Test" parameterType="java.lang.String">
+	 	select * from test where sno=#{sno}
+	 </select>
+	 <select id="logCheck" parameterType="java.util.Map" resultType="empties.User">
+	 	select * from user where sno=#{sno} and passwd=#{passwd}
+	 </select>
+	  <update id="updateByquestion" parameterType="empties.Question"  >
+	  update question set txt=#{txt},idx_1=#{idx_1},idx_2=#{idx_2},idx_3=#{idx_3},
+	  idx_4=#{idx_4},idx_5=#{idx_5},idx_6=#{idx_6},answer=#{answer} where id=#{id}
+	  </update>
+	  <update id="updateBytest" parameterType="empties.Test">
+	  update test set ids=#{ids},name=#{name} where id=#{id}
+	  </update>
+	  <delete id="deleteByquestion" parameterType="java.lang.Integer">
+	  delete from question where id=#{id}
+	  </delete>
+	  <select id="findSno" parameterType="java.lang.Integer" resultType="java.lang.String">
+	  select sno from question where id=#{id}
+	  </select>
+	  <select id="deleteByquestionInnerTest" resultType="empties.Test" parameterType="java.lang.String">
+	  select * from test where sno=#{sno}
+	  </select>
+	  <delete id="deleteByquestionfortest" parameterType="java.util.List">
+	  delete from test where id in 
+	  <foreach collection="list" item="index" open="(" separator="," close=")" >
+	  #{index}
+	  </foreach>
+	  </delete>
+	  <delete id="deleteBytest" parameterType="java.lang.Integer">
+	  delete from test where id=#{id}
+	  </delete> -->
+	  
+<!-- 	<select id="findById" resultMap="hotel_vo" parameterType="java.util.Map">
+		SELECT * FROM table_p_c WHERE p_id=#{id}
+	</select>
+	<insert id="create_hotel" parameterType="hotel.vo.Hotel">
+		INSERT INTO tab_hotel(h_name,h_p_id,h_c_id,h_street,h_introduction,h_internet,h_park,h_equipment,h_in_out,h_cancel_policy,h_cash,h_pet,h_special_items,h_catering,h_shopping,h_entertainment,h_subway_station,h_view_spot) 
+		VALUE(#{h_name},#{p_id},#{c_id},#{street},#{introduction},#{internet},#{park},#{equipment},#{in_out},#{cancel_policy},#{cash},#{pet},#{special_items},#{catering},#{shopping},#{entertainment},#{subway_station},#{view_spot})
+	</insert>
+	<select id="select_customer" resultMap="customer" parameterType="hotel.vo.Customer">
+		SELECT * FROM tab_customer
+		<where>
+		<if test="id!=0">
+		 id=#{id}
+		 </if>
+		<if test="username!=null">
+		 AND c_username=#{username} 
+		 </if>
+		 <if test="email!=null">
+		 AND  c_email=#{email} 
+		  </if>
+		  <if test="phone!=null">
+		  AND  c_phone=#{phone}
+		   </if>
+		</where>
+	</select>
+	<insert id="create_customer" parameterType="hotel.vo.Customer" >
+		INSERT INTO tab_customer(c_username,c_email,c_phone) VALUE(#{username},#{email},#{phone})
+	</insert>
+	<select id="inti_user_list" resultMap="customer" parameterType="hotel.vo.Page_info">
+		SELECT * FROM tab_customer limit #{page_begin},#{page_count}
+	</select>
+	<select id="find_user_list_size" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM tab_customer
+	</select>
+	<delete id="delete_customer" parameterType="java.lang.Integer" >
+		DELETE FROM tab_customer WHERE id=#{id}
+	</delete>
+	<insert id="insert_customer" parameterType="hotel.vo.Customer">
+		INSERT INTO tab_customer(c_username,c_email,c_phone) VALUE(#{username},#{email},#{phone})
+	</insert>
+	<update id="update_customer" parameterType="hotel.vo.Customer">
+		UPDATE tab_customer SET	c_username=#{username},c_email=#{email},c_phone=#{phone} WHERE id=#{id}
+	</update>
+	
+	<delete id="delete_hotel" parameterType="java.lang.Integer" >
+		DELETE FROM tab_hotel WHERE id=#{id}
+	</delete>
+	<insert id="insert_hotel" parameterType="hotel.vo.Hotel">
+			INSERT INTO tab_hotel(h_name,h_p_id,h_c_id,h_street,h_introduction,h_internet,h_park,h_equipment,h_in_out,h_cancel_policy,h_cash,h_pet,h_special_items,h_catering,h_shopping,h_entertainment,h_subway_station,h_view_spot) 
+		VALUE(#{h_name},#{p_id},#{c_id},#{street},#{introduction},#{internet},#{park},#{equipment},#{in_out},#{cancel_policy},#{cash},#{pet},#{special_items},#{catering},#{shopping},#{entertainment},#{subway_station},#{view_spot})
+	</insert>
+	<update id="update_hotel" parameterType="hotel.vo.Hotel">
+		UPDATE tab_hotel (SET h_name=h_name,h_p_id=p_id,h_c_id=c_id,h_street=street,h_introduction=introduction,
+		h_internet=internet,h_park=park,h_equipment=equipment,h_in_out=in_out,
+		h_cancel_policy=cancel_policy,h_cash=cash,h_pet=pet,
+		h_special_items=special_items,h_catering=catering,h_shopping=shopping,
+		h_entertainment=entertainment,
+		h_subway_station=subway_station,h_view_spot=view_spot) WHERE id=#{id}
+	</update>
+		<select id="select_hotel" resultMap="hotel" parameterType="hotel.vo.Hotel">
+		SELECT * FROM tab_hotel
+		<where>
+		<if test="id!=0">
+		 id=#{id}
+		 </if>
+		<if test="p_id!=0">
+		 AND h_p_id=#{p_id}
+		 </if>
+		 <if test="c_id!=0">
+		 AND  h_c_id=#{c_id}
+		  </if>
+		  <if test="street!=null">
+		  AND  h_street=street
+		   </if>
+		</where>
+	</select>
+	<select id="batch_delete_user" parameterType="java.util.List">
+	DELETE FROM tab_customer  WHERE id in
+	<foreach item="idItem" collection="list" open="(" separator="," close=")">
+				#{idItem}</foreach>
+	</select> -->
+</mapper>

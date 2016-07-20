@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="bootstrap.min.css" rel="stylesheet">
+<script src="jquery-2.1.3.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<title>查看实验安排</title>
+</head>
+<body style="padding-top: 50px;">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="padding:1px 10px">
+		 <img alt="Brand" src="icon.jpg" style="width:50px;height:50px">
+	  </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">实验/作业 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="stu_view_practice.html">查看实验安排</a></li>
+            <li class="divider"></li>
+            <li><a href="#">注册实验小组</a></li>
+            <li class="divider"></li>
+            <li><a href="#">提交实验/作业</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">测试/考试 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">在线测试</a></li>
+            <li class="divider"></li>
+            <li><a href="#">在线考试</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">课程资源 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">查询课程资源</a></li>
+            <li class="divider"></li>
+            <li><a href="#">上传课程资源</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="#">张三[04123123]</a></li>
+      	<li><a href="#">设置</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">常用链接 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://www.xupt.edu.cn">西邮主页</a></li>
+            <li><a href="http://lib.xupt.edu.cn">图书馆</a></li>
+            <li class="divider"></li>
+            <li><a href="http://cs.xupt.edu.cn">计算机学院</a></li>
+            <li class="divider"></li>
+            <li><a href="teacher_menu.html">教师系统</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="alert alert-success alert-dismissible" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	欢迎回来!&nbsp;<strong>张三</strong>同学[04123123]
+</div>
+
+<div class="row" style="padding:10px 20px">
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">信息</h3>
+		  </div>
+		  <div class="panel-body">
+		    2014-2015第二学期的实验信息已更新，请同学们尽快根据本学期的实验进行准备工作
+		  </div>
+		  <ul class="list-group">
+		    <li class="list-group-item"  data-toggle="collapse" href="#collapseNote" aria-expanded="false" aria-controls="collapseNote">
+		    	<strong>通知</strong><span class="badge">3</span>
+		    	<div class="collapse" id="collapseNote">
+		    		<br>
+		    		<table class="table table-condensed">
+		    			<tr><td><a href="#">新学期课表已发布，请同学们尽快查看</a></td><td>2-13</td></tr>
+		    			<tr><td><a href="#">学校关于实验选课的新规定</a></td><td>2-8</td></tr>
+		    			<tr><td><a href="#">实验室失物招领，请以下同学尽快持证件来实验室领取</a></td><td>2-5</td></tr>
+		    		</table>
+		    	</div>
+		    </li>
+		    <li class="list-group-item" data-toggle="collapse" href="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
+		    	<strong>帮助</strong>
+		    	<div class="collapse" id="collapseHelp">
+		    		<br>表中不同颜色的实验代表不同状态
+		    		<table class="table table-condensed">
+		    			<tr><td><span class="label label-success">&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>代表新开选课</td></tr>
+		    			<tr><td><span class="label label-info">&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>代表未开选课</td></tr>
+		    			<tr><td><span class="label label-warning">&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>代表即将选满</td></tr>
+		    			<tr><td><span class="label label-danger">&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>代表已经选满</td></tr>
+		    		</table>
+		    	</div>
+		    </li>
+		  </ul>
+		</div>
+	</div>
+	<div class="col-md-9">			
+		   	<table class="table table-bordered table-hover">
+		   		<tr>
+		   			<th>实验编号</th>
+		   			<th>实验名称</th>
+		   			<th>代课教师</th>
+		   			<th>地点</th>
+		   			<th></th>
+		   		</tr>
+		   		<tr class="success">
+		   			<td>111</td>
+		   			<td>软件工程C</td>
+		   			<td>舒新峰</td>
+		   			<td>东区FZ131</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr>
+		   			<td>112</td>
+		   			<td>Java语言程序设计A</td>
+		   			<td>孟伟君</td>
+		   			<td>东区FF106</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr class="success">
+		   			<td>113</td>
+		   			<td>C语言程序设计II</td>
+		   			<td>宋辉</td>
+		   			<td>东区FF106</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr>
+		   			<td>114</td>
+		   			<td>分布式计算原理与应用</td>
+		   			<td>张庆生</td>
+		   			<td>东区FZ131</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr class="warning">
+		   			<td>115</td>
+		   			<td>软件工程C</td>
+		   			<td>舒新峰</td>
+		   			<td>东区FZ131</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr>
+		   			<td>116</td>
+		   			<td>Java语言程序设计A</td>
+		   			<td>孟伟君</td>
+		   			<td>东区FF106</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr class="info">
+		   			<td>117</td>
+		   			<td>C语言程序设计II</td>
+		   			<td>宋辉</td>
+		   			<td>东区FF106</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+		   		<tr class="danger">
+		   			<td>118</td>
+		   			<td>分布式计算原理与应用</td>
+		   			<td>张庆生</td>
+		   			<td>东区FZ131</td>
+		   			<td><a class="btn btn-default btn-xs" href="stu_view_practice_detail.html">查看详细</a></td>
+		   		</tr>
+			</table>
+			<div class="text-center">	<!-- 分页 -->
+				<nav>
+				  <ul class="pagination">
+				    <li>
+				      <a href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				      </a>
+				    </li>
+				    <li><a href="#">1</a></li>
+				    <li><a href="#">2</a></li>
+				    <li><a href="#">3</a></li>
+				    <li><a href="#">4</a></li>
+				    <li><a href="#">5</a></li>
+				    <li>
+				      <a href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				      </a>
+				    </li>
+				  </ul>
+				</nav>
+			</div>
+	</div>
+</div>
+
+</body>
+</html>

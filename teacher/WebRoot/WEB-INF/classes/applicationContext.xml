@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:property-placeholder location="classpath:db.properties" ></context:property-placeholder>
+	
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	 	<property name="driverClass" value="${jdbc.driver}"></property>
+	 	<property name="user" value="${jdbc.user}"></property>
+	 	<property name="password" value="${jdbc.passwd}"></property>
+	 	<property name="jdbcUrl" value="${jdbc.url}"></property>
+	 </bean> 
+	 
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	 	<property name="dataSource" ref="dataSource"></property>
+	 	<property name="configLocation" value="classpath:ConfigLocation.xml"></property>
+	 </bean>
+	 <bean id="sqlTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	 	 <constructor-arg index="0" ref="sqlSessionFactory" />   
+	 </bean>
+	 
+	 <bean id="baseDao" class="comment.BaseDao">
+	 	<property name="sqlSessionTemplate" ref="sqlTemplate"></property>
+	 </bean>
+	 
+	 
+	 <bean id="unitDao" class="teacherDao.UnitDao" parent="baseDao">
+	 </bean>
+	 <bean id="unitService" class="teacherService.UnitService">
+	 	<property name="unitDao" ref="unitDao"></property>
+	 </bean>
+	 <bean id="unitAction" class="teacherAction.UnitAction">
+	 	<property name="unitService" ref="unitService"></property>
+	 </bean>
+	 
+	 
+	 <bean id="studentDao" class="teacherDao.StudentDao" parent="baseDao">
+	 </bean>
+	 <bean id="studentService" class="teacherService.StudentService">
+	 	<property name="studentDao" ref="studentDao"></property>
+	 </bean>
+	 <bean id="studentAction" class="teacherAction.StudentAction">
+	 	<property name="studentService" ref="studentService"></property>
+	 </bean>
+	 
+	 
+	  
+	 <bean id="courseDao" class="teacherDao.CourseDao" parent="baseDao"/>
+	 <bean id="courseService" class="teacherService.CourseService">
+	 	<property name="courseDao" ref="courseDao"/>
+	 </bean>
+	 <bean id="courseAction" class="teacherAction.CourseAction">
+	 	<property name="courseService" ref="courseService"/>
+	 </bean>
+	 
+	 
+	 <bean id="eduPlanDao" class="teacherDao.EduPlanDao" parent="baseDao"/>
+	 <bean id="eduplanService" class="teacherService.EduplanService">
+	 	<property name="eduPlanDao" ref="eduPlanDao"/>
+	 </bean>
+	 <bean id="eduplanAction" class="teacherAction.EduplanAction">
+	 	<property name="eduplanService" ref="eduplanService"/>
+	 </bean>
+	 
+	 
+	 <bean id="groupDao" class="teacherDao.GroupDao" parent="baseDao"/>
+	 <bean id="groupService" class="teacherService.GroupService">
+	 	<property name="groupDao" ref="groupDao"/>
+	 </bean>
+	 <bean id="groupAction" class="teacherAction.GroupAction">
+	 	<property name="groupService" ref="groupService"/>
+	 </bean>
+	 
+	 
+	 <bean id="modelDao" class="teacherDao.ModelDao" parent="baseDao"/>
+	 <bean id="modelService" class="teacherService.ModelService">
+	 	<property name="modelDao" ref="modelDao"/>
+	 </bean>
+	 <bean id="modelAction" class="teacherAction.ModelAction">
+	 	<property name="modelService" ref="modelService"/>
+	 </bean>
+	 
+	 
+	 <bean id="studentToCourseDao" class="teacherDao.StudentToCourseDao" parent="baseDao"/>
+	 <bean id="studentToCourseService" class="teacherService.StudentToCourseService">
+	 	<property name="studentToCourseDao" ref="studentToCourseDao"/>
+	 </bean>
+	 <bean id="studentToCourseAction" class="teacherAction.StudentToCourseAction">
+	 	<property name="studentToCourseService" ref="studentToCourseService"/>
+	 </bean>
+	 
+	 
+	 
+	 <bean id="taskToModelDao" class="teacherDao.TaskToModelDao" parent="baseDao"/>
+	 <bean id="taskToModelService" class="teacherService.TaskToModelService">
+	 	<property name="taskToModelDao" ref="taskToModelDao"/>
+	 </bean>
+	 <bean id="taskToModelAction" class="teacherAction.TaskToModelAction">
+	 	<property name="taskToModelService" ref="taskToModelService"/>
+	 </bean>
+	 
+	 
+	 <bean id="taskToPlanDao" class="teacherDao.TaskToPlanDao" parent="baseDao"/>
+	 <bean id="taskToPlanService" class="teacherService.TaskToPlanService">
+	 	<property name="taskToPlanDao" ref="taskToPlanDao"/>
+	 </bean>
+	 <bean id="taskToPlanAction" class="teacherAction.TaskToPlanAction">
+	 	<property name="taskToPlanService" ref="taskToPlanService"/>
+	 </bean>
+	 
+	 <bean id="titleDao" class="teacherDao.TitleDao" parent="baseDao"></bean>
+	 <bean id="titleService" class="teacherService.TitleService">
+	 	<property name="titleDao" ref="titleDao"></property>
+	 </bean>
+	 <bean id="titleModelAction" class="teacherAction.TitleModelAction">
+		<property name="titleService" ref="titleService"></property>
+	</bean>
+	
+	<bean id="titlePlanAction" class="teacherAction.TitlePlanAction">
+		<property name="titleService" ref="titleService"></property>
+	</bean>
+	 
+	 
+</beans>
+
+
